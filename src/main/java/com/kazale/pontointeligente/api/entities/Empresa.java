@@ -78,6 +78,17 @@ public class Empresa implements Serializable {
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
+	/**
+	 * FetchType.LAZY - quando carregar uma empresa não quero carregar todos funcionários automaticamente
+	 * 
+	 * FetchType.EAGER - Imagine que quando você usa o EAGER e dá um get num objeto, ele traz tudo que está 
+	 * dentro do objeto, ou seja, se há um relacionamento 1 para N (como neste caso), no objeto será carregado todas as referências(N) dele. 
+	 * Se sua aplicação depende de performance, este pode ser um problema, pois isto ocupará um grande espaço de memória carregando todas as 
+	 * listas/dependências do objeto.
+	 * 
+	 * CascadeType.ALL - excluir ou executar operações de um funcionário que é dependente de uma empresa
+	 * @return
+	 */
 	@OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
@@ -87,11 +98,17 @@ public class Empresa implements Serializable {
 		this.funcionarios = funcionarios;
 	}
 	
+	/**
+	 * Atualiza automaticamente a data
+	 */
 	@PreUpdate
     public void preUpdate() {
         dataAtualizacao = new Date();
     }
      
+	/**
+	 * Atualiza automaticamente a data
+	 */
     @PrePersist
     public void prePersist() {
         final Date atual = new Date();

@@ -24,3 +24,13 @@ No terminal, execute a seguinte operação:
 mvn eclipse:eclipse
 ```
 No Eclipse/STS, importe o projeto como projeto Maven.
+
+
+Arquivo V1_init.sql - arquivo que contém as queries de criação das tabelas, alteração....
+flyway para automatizar a criação de um banco de dados : O Flyway é um framework que permite o versionamento e automatização no processo de
+criação​ ​de​ ​banco​ ​de​ ​dados.
+Nele é possível configurar a criação de tabelas, dados iniciais que devem estar na base de dados,​ ​entre​ ​outros
+Para criar as tabelas: basta executar a aplicação para que o Spring Boot execute o Flyway automaticamente​ ​e​ ​gere​ ​nossa​ ​tabela​ ​na​ ​base​ ​de​ ​dados
+
+H2 - banco de dados em memoria, utilizo ele para executar os testes unitários das minhas queries.
+application-test.properties - faço a configuração do H2

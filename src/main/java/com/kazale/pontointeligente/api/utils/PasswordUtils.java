@@ -23,7 +23,9 @@ public class PasswordUtils {
 		}
 
 		log.info("Gerando hash com o BCrypt.");
+		//classe do Spring Security para criptografar a senha informada
 		BCryptPasswordEncoder bCryptEncoder = new BCryptPasswordEncoder();
+		//retorna o hash da senha informada pelo usuario
 		return bCryptEncoder.encode(senha);
 	}
 

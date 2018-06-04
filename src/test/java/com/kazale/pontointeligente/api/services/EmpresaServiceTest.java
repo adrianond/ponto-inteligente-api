@@ -24,6 +24,9 @@ import com.kazale.pontointeligente.api.repositories.EmpresaRepository;
 @ActiveProfiles("test")
 public class EmpresaServiceTest {
 
+	/**
+	 * Ao invés de utilizar @Autowired e obter uma instância verdadeira, utilizo um objeto fake utilzando @MockBean
+	 */
 	@MockBean
 	private EmpresaRepository empresaRepository;
 
@@ -34,19 +37,24 @@ public class EmpresaServiceTest {
 
 	@Before
 	public void setUp() throws Exception {
+		//qualquer coisa que o método findByCnpj receber devolver um obejto 'fake' empresa
 		BDDMockito.given(this.empresaRepository.findByCnpj(Mockito.anyString())).willReturn(new Empresa());
+		//passo um obejto do tipo empresa e retorna objeto do tipo empresa
 		BDDMockito.given(this.empresaRepository.save(Mockito.any(Empresa.class))).willReturn(new Empresa());
 	}
 
 	@Test
 	public void testBuscarEmpresaPorCnpj() {
+		//busca objeto empresa 'fake' criada anteriormente
 		Optional<Empresa> empresa = this.empresaService.buscarPorCnpj(CNPJ);
 
+		//verifica se ha um obejto empresa dentro do objeto Optional
 		assertTrue(empresa.isPresent());
 	}
 	
 	@Test
 	public void testPersistirEmpresa() {
+		//inseri obejto empresa 'fake' criado anteriormente
 		Empresa empresa = this.empresaService.persistir(new Empresa());
 
 		assertNotNull(empresa);

@@ -103,6 +103,11 @@ public class Funcionario implements Serializable {
 		return qtdHorasTrabalhoDia;
 	}
 	
+	/**
+	 * @Transient - JPA deve ignorar esse método, pois tal metodo não tem relação com o BD,
+	 * não tem relação com o mapeamento da entidade com o BD (nesse caso faz conversações com o DTO)
+	 * @return
+	 */
 	@Transient
 	public Optional<Float> getQtdHorasTrabalhoDiaOpt() {
 		return Optional.ofNullable(qtdHorasTrabalhoDia);
@@ -126,6 +131,10 @@ public class Funcionario implements Serializable {
 		this.qtdHorasAlmoco = qtdHorasAlmoco;
 	}
 
+	/**
+	 * @Enumerated(EnumType.STRING) - coloca no nome da role ROLE_ADMIN ou ROLE_USUARIO ao invés de 0 ou 1
+	 * @return
+	 */
 	@Enumerated(EnumType.STRING)
 	@Column(name = "perfil", nullable = false)
 	public PerfilEnum getPerfil() {
@@ -163,6 +172,10 @@ public class Funcionario implements Serializable {
 		this.senha = senha;
 	}
 
+	/**
+	 * FetchType.EAGER - toda vez que carregar um funcionário quero ter os dados da empresa
+	 * @return
+	 */
 	@ManyToOne(fetch = FetchType.EAGER)
 	public Empresa getEmpresa() {
 		return empresa;

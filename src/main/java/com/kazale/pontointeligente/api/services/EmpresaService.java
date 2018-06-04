@@ -11,6 +11,8 @@ public interface EmpresaService {
 	 * 
 	 * @param cnpj
 	 * @return Optional<Empresa>
+	 * Optional - uma forma muito mais interessante de representar atributos que podem ou não estar presentes em nosso código.
+	 * Você pode pensar em um Optional como uma classe que pode ou não conter um valor não nulo. 
 	 */
 	Optional<Empresa> buscarPorCnpj(String cnpj);
 	

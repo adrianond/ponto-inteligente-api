@@ -48,6 +48,10 @@ public class Lancamento implements Serializable {
 		this.id = id;
 	}
 
+	/**
+	 * @Temporal(TemporalType.TIMESTAMP) -gravar a data e a hora do lançamento
+	 * @return
+	 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data", nullable = false)
 	public Date getData() {

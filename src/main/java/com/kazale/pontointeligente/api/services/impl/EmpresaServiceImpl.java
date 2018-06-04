@@ -22,6 +22,7 @@ public class EmpresaServiceImpl implements EmpresaService {
 	@Override
 	public Optional<Empresa> buscarPorCnpj(String cnpj) {
 		log.info("Buscando uma empresa para o CNPJ {}", cnpj);
+		//cnpj pode ser nulo, logo utilizo Optional.ofNullable para evitar problemas de nullPointerException
 		return Optional.ofNullable(empresaRepository.findByCnpj(cnpj));
 	}
 
