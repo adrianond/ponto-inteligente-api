@@ -86,6 +86,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		
+		<!-- Para o jackson suportar recursos do java8 -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jdk8</artifactId>
@@ -97,7 +98,7 @@
 			<version>3.6</version>
 		</dependency>
 		
-		<!-- JWT Token -->
+		<!-- JWT Token para geração de token para camada de segurança -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>

@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class LancamentoDto {
 	
+	//id sendo iniciado como vazio porque ele será opicional não será utilizado em todas operações
 	private Optional<Long> id = Optional.empty();
 	private String data;
 	private String tipo;

@@ -48,13 +48,13 @@ public class EmpresaServiceTest {
 		//busca objeto empresa 'fake' criada anteriormente
 		Optional<Empresa> empresa = this.empresaService.buscarPorCnpj(CNPJ);
 
-		//verifica se ha um obejto empresa dentro do objeto Optional
+		//verifica se ha um objeto empresa dentro do objeto Optional
 		assertTrue(empresa.isPresent());
 	}
 	
 	@Test
 	public void testPersistirEmpresa() {
-		//inseri obejto empresa 'fake' criado anteriormente
+		//inseri objeto empresa 'fake' criado anteriormente
 		Empresa empresa = this.empresaService.persistir(new Empresa());
 
 		assertNotNull(empresa);

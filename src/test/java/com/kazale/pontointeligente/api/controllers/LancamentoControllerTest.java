@@ -88,6 +88,7 @@ public class LancamentoControllerTest {
 	}
 	
 	@Test
+	//informo o role ADMIN, já que sé esse perfil pode fazer remoção de um lançamento
 	@WithMockUser(username = "admin@admin.com", roles = {"ADMIN"})
 	public void testRemoverLancamento() throws Exception {
 		BDDMockito.given(this.lancamentoService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Lancamento()));
@@ -104,6 +105,7 @@ public class LancamentoControllerTest {
 
 		mvc.perform(MockMvcRequestBuilders.delete(URL_BASE + ID_LANCAMENTO)
 				.accept(MediaType.APPLICATION_JSON))
+		         //testando a flha de autenticação -> status 403
 				.andExpect(status().isForbidden());
 	}
 
@@ -113,6 +115,7 @@ public class LancamentoControllerTest {
 		lancamentoDto.setData(this.dateFormat.format(DATA));
 		lancamentoDto.setTipo(TIPO);
 		lancamentoDto.setFuncionarioId(ID_FUNCIONARIO);
+		//converte o objeto LancamentoDto em um  JSON
 		ObjectMapper mapper = new ObjectMapper();
 		return mapper.writeValueAsString(lancamentoDto);
 	}

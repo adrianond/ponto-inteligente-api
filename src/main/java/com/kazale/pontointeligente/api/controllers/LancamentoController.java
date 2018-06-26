@@ -43,6 +43,7 @@ import com.kazale.pontointeligente.api.services.LancamentoService;
 public class LancamentoController {
 
 	private static final Logger log = LoggerFactory.getLogger(LancamentoController.class);
+	//MySQL usa este formato americano de data para persistir os dados
 	private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	@Autowired
@@ -51,6 +52,7 @@ public class LancamentoController {
 	@Autowired
 	private FuncionarioService funcionarioService;
 	
+	//QTD paginação definido em aplication.propreties
 	@Value("${paginacao.qtd_por_pagina}")
 	private int qtdPorPagina;
 
@@ -164,6 +166,7 @@ public class LancamentoController {
 	 * @return ResponseEntity<Response<Lancamento>>
 	 */
 	@DeleteMapping(value = "/{id}")
+	//somente perfin admin pode remover
 	@PreAuthorize("hasAnyRole('ADMIN')")
 	public ResponseEntity<Response<String>> remover(@PathVariable("id") Long id) {
 		log.info("Removendo lançamento: {}", id);
@@ -245,6 +248,7 @@ public class LancamentoController {
 		lancamento.setLocalizacao(lancamentoDto.getLocalizacao());
 		lancamento.setData(this.dateFormat.parse(lancamentoDto.getData()));
 
+		//EnumUtils - pacote do apache commons
 		if (EnumUtils.isValidEnum(TipoEnum.class, lancamentoDto.getTipo())) {
 			lancamento.setTipo(TipoEnum.valueOf(lancamentoDto.getTipo()));
 		} else {

@@ -1,6 +1,7 @@
 package com.kazale.pontointeligente.api.controllers;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -27,7 +28,7 @@ import com.kazale.pontointeligente.api.utils.PasswordUtils;
 
 @RestController
 @RequestMapping("/api/cadastrar-pj")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")//permite requisiçoes de dominios distintos
 public class CadastroPJController {
 
 	private static final Logger log = LoggerFactory.getLogger(CadastroPJController.class);
@@ -45,16 +46,25 @@ public class CadastroPJController {
 	 * Cadastra uma pessoa jurídica no sistema.
 	 * 
 	 * @param cadastroPJDto
-	 * @param result
+	 * @param result - tem o resultado validação dos campos do DTO
 	 * @return ResponseEntity<Response<CadastroPJDto>>
 	 * @throws NoSuchAlgorithmException
+	 * @Valid - valida as anotations inseridas no DTO (anotações das validações do campo)
 	 */
 	@PostMapping
 	public ResponseEntity<Response<CadastroPJDto>> cadastrar(@Valid @RequestBody CadastroPJDto cadastroPJDto,
 			BindingResult result) throws NoSuchAlgorithmException {
 		log.info("Cadastrando PJ: {}", cadastroPJDto.toString());
 		Response<CadastroPJDto> response = new Response<CadastroPJDto>();
-
+		
+		/**
+		 * Posso retornar um BindingResult, mas não há necessidade como podemos ver na chamada seguinte
+		 */
+		//BindingResult resul = validarDadosExistentes(cadastroPJDto, result);
+		
+		/**
+		 * 
+		 */
 		validarDadosExistentes(cadastroPJDto, result);
 		Empresa empresa = this.converterDtoParaEmpresa(cadastroPJDto);
 		Funcionario funcionario = this.converterDtoParaFuncionario(cadastroPJDto, result);
@@ -75,14 +85,30 @@ public class CadastroPJController {
 
 	/**
 	 * Verifica se a empresa ou funcionário já existem na base de dados.
+	 * Posso retornar um BindingResult, mas não há necessidade como podemos ver na implementação seguinte
 	 * 
 	 * @param cadastroPJDto
 	 * @param result
+	 * @return 
 	 */
-	private void validarDadosExistentes(CadastroPJDto cadastroPJDto, BindingResult result) {
-		this.empresaService.buscarPorCnpj(cadastroPJDto.getCnpj())
-				.ifPresent(emp -> result.addError(new ObjectError("empresa", "Empresa já existente.")));
+	/*private  BindingResult validarDadosExistentes(CadastroPJDto cadastroPJDto, BindingResult result) {
+		
+		Optional<Empresa> e = this.empresaService.buscarPorCnpj(cadastroPJDto.getCnpj());
+				e.ifPresent(emp -> result.addError(new ObjectError("empresa", "Empresa já existente.")));
+		//funcionarioService mais prático
+		this.funcionarioService.buscarPorCpf(cadastroPJDto.getCpf())
+				.ifPresent(func -> result.addError(new ObjectError("funcionario", "CPF já existente.")));
 
+		this.funcionarioService.buscarPorEmail(cadastroPJDto.getEmail())
+				.ifPresent(func -> result.addError(new ObjectError("funcionario", "Email já existente.")));
+		return result;
+	}*/
+	
+  private  void validarDadosExistentes(CadastroPJDto cadastroPJDto, BindingResult result) {
+		
+		Optional<Empresa> e = this.empresaService.buscarPorCnpj(cadastroPJDto.getCnpj());
+				e.ifPresent(emp -> result.addError(new ObjectError("empresa", "Empresa já existente.")));
+		//funcionarioService mais prático
 		this.funcionarioService.buscarPorCpf(cadastroPJDto.getCpf())
 				.ifPresent(func -> result.addError(new ObjectError("funcionario", "CPF já existente.")));
 
@@ -131,6 +157,7 @@ public class CadastroPJController {
 	 * @return CadastroPJDto
 	 */
 	private CadastroPJDto converterCadastroPJDto(Funcionario funcionario) {
+		//OBS: não retorno a senha para view, pois trata - se uma informação confidencial
 		CadastroPJDto cadastroPJDto = new CadastroPJDto();
 		cadastroPJDto.setId(funcionario.getId());
 		cadastroPJDto.setNome(funcionario.getNome());

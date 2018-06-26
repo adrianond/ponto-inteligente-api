@@ -34,3 +34,19 @@ Para criar as tabelas: basta executar a aplicação para que o Spring Boot execu
 
 H2 - banco de dados em memoria, utilizo ele para executar os testes unitários das minhas queries.
 application-test.properties - faço a configuração do H2
+
+A anotação @Component é um tipo genérico para qualquer bean que deve ser gerenciado pelo Spring.
+
+@Repository, @Service e @Controller são especializações de @Component e servem para as camadas de persistencia, serviço e apresentação respectivamente.
+
+Você pode utilizar @Component para qualquer classe da sua aplicação, mas utilizar uma anotação mais específica ajuda caso deseje criar um filtro, utilizar ferramentas, ou orientação a aspectos.
+
+Funcionalmente todas as anotações servem para declarar beans, não existe diferença entre elas a não ser na questão de organização da apliacação e utilidades citadas anteriormente.
+
+Como utulizamos spring security, é necessario autenticar os usuarios antes que fazerem chamadas a URL's protegidas e que necessitam de autenticação.
+Isso é feito fazendo uma chamada POST no AuthenticationController e utilizando a URL /auth passando um email e senha validos, assim faço a requisição 
+que deve retornar sucesso e o token, então copio sem as apas o token para autenticar na aplicação, retorno na requisição que tentei executar, clico ma aba header,
+adiciono key:Autorization, value: Bearer 'meuToken'
+
+
+Se eu tentar executar um delete com um usuário sem roler Admin, é necessário antes autenticar com um usuário com esse papel de admin

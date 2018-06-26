@@ -26,6 +26,7 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 	
 	public Optional<Funcionario> buscarPorCpf(String cpf) {
 		log.info("Buscando funcionário pelo CPF {}", cpf);
+		//como pode ter dados nulos, utilizo o novo recurso do java 8 Optional
 		return Optional.ofNullable(this.funcionarioRepository.findByCpf(cpf));
 	}
 	

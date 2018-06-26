@@ -26,6 +26,7 @@ import com.kazale.pontointeligente.api.services.EmpresaService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+//preciso de um contexto WEB para o teste
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 public class EmpresaControllerTest {
@@ -33,6 +34,7 @@ public class EmpresaControllerTest {
 	@Autowired
 	private MockMvc mvc;
 
+	//ja testei empresaService, agora quero testar o controller, logo vou usar @MockBean
 	@MockBean
 	private EmpresaService empresaService;
 
@@ -42,6 +44,7 @@ public class EmpresaControllerTest {
 	private static final String RAZAO_SOCIAL = "Empresa XYZ";
 
 	@Test
+	//anotação do spring security teste que gera um mock user autenticado, logo deve usar essa autenticação em todos os teste de controle por causa do spring security
 	@WithMockUser
 	public void testBuscarEmpresaCnpjInvalido() throws Exception {
 		BDDMockito.given(this.empresaService.buscarPorCnpj(Mockito.anyString())).willReturn(Optional.empty());
