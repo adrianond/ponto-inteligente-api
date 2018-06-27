@@ -33,7 +33,7 @@ Nele é possível configurar a criação de tabelas, dados iniciais que devem es
 Para criar as tabelas: basta executar a aplicação para que o Spring Boot execute o Flyway automaticamente​ ​e​ ​gere​ ​nossa​ ​tabela​ ​na​ ​base​ ​de​ ​dados
 
 H2 - banco de dados em memoria, utilizo ele para executar os testes unitários das minhas queries.
-application-test.properties - faço a configuração do H2
+application-test.properties(profile de teste) - faço a configuração do H2
 
 A anotação @Component é um tipo genérico para qualquer bean que deve ser gerenciado pelo Spring.
 
@@ -50,3 +50,7 @@ adiciono key:Autorization, value: Bearer 'meuToken'
 
 
 Se eu tentar executar um delete com um usuário sem roler Admin, é necessário antes autenticar com um usuário com esse papel de admin
+
+A ação de login na aplicação, que dependede três arquivos, um​ ​DTO​ ​para​ ​o​ ​usuário,​ ​um​ ​DTO​ ​para​ ​retornar​ ​o​ ​token,​ ​e​ ​o​ ​controller​ ​de​ ​autenticação
+
+@RunWith(SpringRunner.class) e @SpringBootTest serve para o Spring criar um contexto de teste

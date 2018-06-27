@@ -5,6 +5,12 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+/**
+ * O Spring Security depende de um usuário que implemente a interface UserDetails, 
+ * pois é através​ ​desses​ ​dados​ ​que​ ​ele​ ​controlará​ ​quem​ ​está​ ​autenticado​ ​no​ ​sistema
+ * @author nss_admin
+ *
+ */
 public class JwtUser implements UserDetails {
 
 	private static final long serialVersionUID = -268046329085485932L;

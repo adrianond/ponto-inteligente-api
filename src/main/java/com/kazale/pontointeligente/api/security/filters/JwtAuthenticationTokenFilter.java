@@ -17,6 +17,12 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.kazale.pontointeligente.api.security.utils.JwtTokenUtil;
 
+/**
+ * filtro para verificar o acesso a cada requisição, ou seja, se existe no 
+ * header do HTTP um token​ ​válido,​ ​autorizando​ ​o​ ​acesso
+ * @author nss_admin
+ *
+ */
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 	private static final String AUTH_HEADER = "Authorization";

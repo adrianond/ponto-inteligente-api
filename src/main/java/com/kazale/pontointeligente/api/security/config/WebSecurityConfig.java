@@ -17,6 +17,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.kazale.pontointeligente.api.security.JwtAuthenticationEntryPoint;
 import com.kazale.pontointeligente.api.security.filters.JwtAuthenticationTokenFilter;
 
+/**
+ *  Habilitá o Spring Security, na aplicação​ ​Spring​ ​Boot
+ * @author nss_admin
+ *
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)

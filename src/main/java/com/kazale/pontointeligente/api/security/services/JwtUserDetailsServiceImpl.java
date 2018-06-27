@@ -12,6 +12,11 @@ import com.kazale.pontointeligente.api.entities.Funcionario;
 import com.kazale.pontointeligente.api.security.JwtUserFactory;
 import com.kazale.pontointeligente.api.services.FuncionarioService;
 
+/**
+ *  Serviço para manipular interface UserDetails
+ * @author nss_admin
+ *
+ */
 @Service
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
 

@@ -15,6 +15,7 @@ import com.kazale.pontointeligente.api.entities.Empresa;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+//test - profile de teste: application-test.properties
 @ActiveProfiles("test")
 public class EmpresaRepositoryTest {
 	

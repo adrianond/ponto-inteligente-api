@@ -9,6 +9,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import com.kazale.pontointeligente.api.entities.Funcionario;
 import com.kazale.pontointeligente.api.enums.PerfilEnum;
 
+/**
+ *  Factory para converter nosso usuário no usuário reconhecido​ ​pelo​ ​Spring​ ​Security
+ * @author nss_admin
+ *
+ */
 public class JwtUserFactory {
 
 	private JwtUserFactory() {
