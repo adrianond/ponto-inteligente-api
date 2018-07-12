@@ -56,3 +56,5 @@ A ação de login na aplicação, que dependede três arquivos, um​ ​DTO​ 
 @RunWith(SpringRunner.class) e @SpringBootTest serve para o Spring criar um contexto de teste
 
 V2__admin_padrao.sql - usado para criar um usuario padrão para o swagger, pois é preciso autenticar um usuario, então utilizo esse usuario padrao para autentica - lo
+
+O arquivo Procfile (na raiz da aplicação) é para informar ao heroku para usar o profile de produção, e qual jar(da nossa aplicação) será usado pelo heroku para executar a aplicação
