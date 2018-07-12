@@ -58,3 +58,6 @@ A ação de login na aplicação, que dependede três arquivos, um​ ​DTO​ 
 V2__admin_padrao.sql - usado para criar um usuario padrão para o swagger, pois é preciso autenticar um usuario, então utilizo esse usuario padrao para autentica - lo
 
 O arquivo Procfile (na raiz da aplicação) é para informar ao heroku para usar o profile de produção, e qual jar(da nossa aplicação) será usado pelo heroku para executar a aplicação
+
+URL do projeto no heroku :  https://young-thicket-77956.herokuapp.com (neste caso vai dar erro, pois nosso projeto trata - se de uma API),
+logo para testar nossa API no heroku, utilizo o Postman, mas claro que trocando a URL(localhost),pela URl do heroku ( https://young-thicket-77956.herokuapp.com)+recurso REST, por exemplo :https://young-thicket-77956.herokuapp.com/api/funcionarios/3
