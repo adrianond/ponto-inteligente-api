@@ -44,7 +44,7 @@ public class CadastroPFController {
 	}
 
 	/**
-	 * Cadastra um funcionário pessoa física no sistema.
+	 * Cadastra um funcionário pessoa física no sistema (em uma empresa).
 	 * 
 	 * @param cadastroPFDto
 	 * @param result

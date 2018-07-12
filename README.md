@@ -54,3 +54,5 @@ Se eu tentar executar um delete com um usuário sem roler Admin, é necessário 
 A ação de login na aplicação, que dependede três arquivos, um​ ​DTO​ ​para​ ​o​ ​usuário,​ ​um​ ​DTO​ ​para​ ​retornar​ ​o​ ​token,​ ​e​ ​o​ ​controller​ ​de​ ​autenticação
 
 @RunWith(SpringRunner.class) e @SpringBootTest serve para o Spring criar um contexto de teste
+
+V2__admin_padrao.sql - usado para criar um usuario padrão para o swagger, pois é preciso autenticar um usuario, então utilizo esse usuario padrao para autentica - lo

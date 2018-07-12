@@ -44,6 +44,7 @@ public class CadastroPJController {
 
 	/**
 	 * Cadastra uma pessoa jurídica no sistema.
+	 * Os dados de pessoa física do CadastroPJDto se refere ao proprietário da empresa
 	 * 
 	 * @param cadastroPJDto
 	 * @param result - tem o resultado validação dos campos do DTO
