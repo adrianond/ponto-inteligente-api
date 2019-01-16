@@ -65,3 +65,5 @@ logo para testar nossa API no heroku, utilizo o Postman, mas claro que trocando 
 Acessar banco de dados : http://localhost:8080/phpmyadmin/
 
 Classe que habilita/desabilita a autenticação : WebSecurityConfig
+
+
