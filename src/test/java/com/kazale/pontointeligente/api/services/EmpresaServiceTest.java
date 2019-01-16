@@ -32,13 +32,16 @@ public class EmpresaServiceTest {
 
 	@Autowired
 	private EmpresaService empresaService;
+	
+	
 
 	private static final String CNPJ = "51463645000100";
 
 	@Before
 	public void setUp() throws Exception {
-		//qualquer coisa que o método findByCnpj receber devolver um obejto 'fake' empresa
+		//qualquer coisa que o método findByCnpj receber devolver um obejto 'fake' Empresa para ser persistido no banco me memória : h2
 		BDDMockito.given(this.empresaRepository.findByCnpj(Mockito.anyString())).willReturn(new Empresa());
+		Mockito.when(this.empresaRepository.findByCnpj(Mockito.anyString())).thenReturn(new Empresa());
 		//passo um obejto do tipo empresa e retorna objeto do tipo empresa
 		BDDMockito.given(this.empresaRepository.save(Mockito.any(Empresa.class))).willReturn(new Empresa());
 	}

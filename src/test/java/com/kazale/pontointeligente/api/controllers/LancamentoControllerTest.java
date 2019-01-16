@@ -58,6 +58,7 @@ public class LancamentoControllerTest {
 	@WithMockUser
 	public void testCadastrarLancamento() throws Exception {
 		Lancamento lancamento = obterDadosLancamento();
+		//antes de persistir um lançamento, é necessário validar o funcionário para verificar se existe na base de dados e realizar seu lançamento
 		BDDMockito.given(this.funcionarioService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Funcionario()));
 		BDDMockito.given(this.lancamentoService.persistir(Mockito.any(Lancamento.class))).willReturn(lancamento);
 

@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +21,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.kazale.pontointeligente.api.entities.Empresa;
 import com.kazale.pontointeligente.api.entities.Lancamento;
 import com.kazale.pontointeligente.api.repositories.LancamentoRepository;
 
@@ -40,7 +42,9 @@ public class LancamentoServiceTest {
 				.willReturn(new PageImpl<Lancamento>(new ArrayList<Lancamento>()));
 		BDDMockito.given(this.lancamentoRepository.findOne(Mockito.anyLong())).willReturn(new Lancamento());
 		BDDMockito.given(this.lancamentoRepository.save(Mockito.any(Lancamento.class))).willReturn(new Lancamento());
+		Mockito.when(this.lancamentoRepository.save(Mockito.any(Lancamento.class))).thenReturn(new Lancamento());
 	}
+	
 
 	@Test
 	public void testBuscarLancamentoPorFuncionarioId() {

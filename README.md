@@ -61,3 +61,7 @@ O arquivo Procfile (na raiz da aplicação) é para informar ao heroku para usar
 
 URL do projeto no heroku :  https://young-thicket-77956.herokuapp.com (neste caso vai dar erro, pois nosso projeto trata - se de uma API),
 logo para testar nossa API no heroku, utilizo o Postman, mas claro que trocando a URL(localhost),pela URl do heroku ( https://young-thicket-77956.herokuapp.com)+recurso REST, por exemplo :https://young-thicket-77956.herokuapp.com/api/funcionarios/3
+
+Acessar banco de dados : http://localhost:8080/phpmyadmin/
+
+Classe que habilita/desabilita a autenticação : WebSecurityConfig
