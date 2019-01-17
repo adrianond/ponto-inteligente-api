@@ -72,11 +72,12 @@ senha: Nogueira_1
 
 Para enviar projeto para o heroku:
 Acesse pelo terminal a raiz do projeto a ser enviado para o Heroku, e execute os seguintes comandos: 
-1.git​ ​init git​ ​add​ ​. 
-2.git​ ​commit​ ​-m​ ​​"Primeiro​ ​commit" 
-3.heroku​ ​create 
-4.git​ ​push​ ​heroku​ ​master 
-5.heroku​ ​open 
+1.git​ ​init 
+2.git​ ​add​ ​. 
+3.git​ ​commit​ ​-m​ ​​"Primeiro​ ​commit" 
+4.heroku​ ​create 
+5.git​ ​push​ ​heroku​ ​master 
+6.heroku​ ​open 
  
 obs: Os comandos executados são para adicionar o código ao Git do Heroku, depois em ‘heroku create’ uma nova máquina virtual é criada para o deploy, 
 seguido do envio dos arquivos para​ ​ele. 
