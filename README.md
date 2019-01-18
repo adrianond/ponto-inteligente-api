@@ -67,21 +67,29 @@ O arquivo Procfile (na raiz da aplicação) é para informar ao heroku para usar
 URL do projeto no heroku :  https://young-thicket-77956.herokuapp.com (neste caso vai dar erro, pois nosso projeto trata - se de uma API),
 logo para testar nossa API no heroku, utilizo o Postman, mas claro que trocando a URL(localhost),pela URl do heroku ( https://young-thicket-77956.herokuapp.com)+recurso REST, por exemplo :https://young-thicket-77956.herokuapp.com/api/funcionarios/3
 
-User Heroku: adrianond@yahoo.com.br
-senha: Nogueira_1
 
 Para enviar projeto para o heroku:
-Acesse pelo terminal a raiz do projeto a ser enviado para o Heroku, e execute os seguintes comandos: 
-1.git​ ​init 
-2.git​ ​add​ ​. 
-3.git​ ​commit​ ​-m​ ​​"Primeiro​ ​commit" 
-4.heroku​ ​create 
+1. criar o app no heroku (pod fazer a inteface do heroku, ou pela linha de comando)
+
+2.efetuar login heroku:
+er Heroku: adrianond@yahoo.com.br
+senha: Nogueira_1
+
+3. Agora é preciso associar seu repositorio local(seu fonte) com a máquina virtual do heroku
+3.1.Acesse pelo terminal a raiz do projeto a ser enviado para o Heroku execute o comando:
+3.2.heroku git:remote -a ponto-inteligente-app (este ultimo é nome do app criado no heroku
+4.git​ ​add​ ​. 
+5.git​ ​commit​ ​-m​ ​​"Primeiro​ ​commit"  
 5.git​ ​push​ ​heroku​ ​master 
-6.heroku​ ​open 
- 
-obs: Os comandos executados são para adicionar o código ao Git do Heroku, depois em ‘heroku create’ uma nova máquina virtual é criada para o deploy, 
-seguido do envio dos arquivos para​ ​ele. 
-Para atualizar a aplicação, basta executar os mesmos passos, exceto o ‘heroku create’ por já​ ​existir​ ​uma​ ​máquina​ ​virtual​ ​criada 
+7.heroku​ ​open (se quiser abrir o heroku)
+
+OBS: como uso BD na palicação ponto- inteligente, será preciso criar um BD no heroku
+1.clicar em Overview
+2.clicar em Configure Add-ons
+3. no campo de buscar digitar Clear DB (banco de dados MySQL para nuvem do heroku)
+4.agora será necessário obter a URL desse BD, execute o comando no console (ainda na pasta do projeto)
+5.heroku config | grep CLEARDB_DATABASE_URL - esta URL será informada no application-prop.properties
+6.no arquivo Procfile está sendo informado que é para usar as configurações do arquivo application-prop.properties
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Acessar banco de dados : http://localhost:8080/phpmyadmin/
