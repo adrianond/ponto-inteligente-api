@@ -83,6 +83,9 @@ senha: Nogueira_1
 5.git​ ​push​ ​heroku​ ​master 
 7.heroku​ ​open (se quiser abrir o heroku)
 
+No fim do deploy é informado a URL do projeto no heroku, neste caso:
+https://ponto-inteligente-app.herokuapp.com
+
 OBS: como uso BD na palicação ponto- inteligente, será preciso criar um BD no heroku
 1.clicar em Overview
 2.clicar em Configure Add-ons
