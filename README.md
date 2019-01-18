@@ -12,7 +12,7 @@ A API RESTful de Ponto Inteligente contém as seguintes características:
 * Integração contínua com TravisCI
 ### Como executar a aplicação
 Certifique-se de ter o Maven instalado e adicionado ao PATH de seu sistema operacional, assim como o Git.
-```
+```eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBrYXphbGUuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJjcmVhdGVkIjoxNTQ3ODE3NDUzODA3LCJleHAiOjE1NDg0MjIyNTN9.kIwFGD7V6a0zhov0otWZrWzKsoC6oa0_p0gpENG-rArZUZ51Ns78lRy2zYShfsypnThiZRkxS6pC02fEVUMmmA
 git clone https://github.com/m4rciosouza/ponto-inteligente-api.git
 cd ponto-inteligente-api
 mvn spring-boot:run
