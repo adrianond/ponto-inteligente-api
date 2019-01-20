@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven_3.5.2' 
+        maven 'maven-3.5.2' 
     }
     
     stages {
@@ -14,7 +14,7 @@ pipeline {
            }
        }
        
-       stage ('Executando os testes Unitários') {
+       stage ('Executando os testes Unitarios') {
           steps {
              //WithMaven(maven : 'maven-3.5.2') {
              //sh 'maven test'
