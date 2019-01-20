@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-       stage ('Compile stage') {
+       stage ('Compilando o projeto') {
            steps {
              WithMaven(maven : 'maven-3.5.2') {
              sh 'maven clean compile'
@@ -10,7 +10,7 @@ pipeline {
            }
        }
        
-       stage ('Testing stage') {
+       stage ('Executando os testes Unitários') {
           steps {
              WithMaven(maven : 'maven-3.5.2') {
              sh 'maven test'
@@ -18,7 +18,7 @@ pipeline {
            }                 
         }
         
-        stage ('Deployment stage') {
+        stage ('Efetuando o build do projeto') {
           steps {
              WithMaven(maven : 'maven-3.5.2') {
              sh 'maven deploy'
