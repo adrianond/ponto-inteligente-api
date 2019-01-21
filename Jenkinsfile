@@ -35,7 +35,7 @@ pipeline {
        stage('deploy production'){
          steps {
                 //deploy('https://git.heroku.com/ponto-inteligente-app.git', '8090')
-                bat " mvn heroku:deploy -DskipTests=true -Dmaven.javadoc.skip=true -B -V -D https://git.heroku.com/ponto-inteligente-app.git"
+                bat " mvn heroku:deploy -DskipTests=true -Dmaven.javadoc.skip=true -B -V -D heroku.appName=https://git.heroku.com/ponto-inteligente-app.git"
             }
         }
     } 
