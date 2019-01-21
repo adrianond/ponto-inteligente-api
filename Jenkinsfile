@@ -34,6 +34,7 @@ pipeline {
         
        stage('Deploy em Prod'){
          steps {
+               bat "mvn heroku buildpacks:set https://github.com/adrianond/ponto-inteligente-api.git"
                // bat " mvn clean heroku:deploy -Dheroku.curl.enabled=true -DskipTests=true -Dmaven.javadoc.skip=true -B -V -D heroku.appName=https://git.heroku.com/ponto-inteligente-app.git"
                 bat " mvn heroku buildpacks:clear --app ponto-inteligente -DskipTests=true -Dmaven.javadoc.skip=true -B -V -D heroku.appName=https://git.heroku.com/ponto-inteligente-app.git"
                 
