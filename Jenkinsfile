@@ -31,18 +31,6 @@ pipeline {
              //}
            }                 
         }
-    }
-    
-    post {
-    failure {
-        mail to: 'adrianond@yahoo.com.br',
-            subject: 'Falha no Build do projeto ponto-inteligente-pipeline',
-            body: "Ocorreu falha no build/deploy do projeto ponto-inteligente-pipeline!"
-    }
-     success {
-           mail to: 'adrianond@yahoo.com.br',
-            subject: 'Build do projeto ponto-inteligente-pipeline',
-            body: "Deploy do projeto ponto-inteligente-pipeline realizado com sucesso"
-        }
-    }
+    } 
+
 }
