@@ -34,7 +34,10 @@ pipeline {
         
        stage('Deploy em Prod'){
          steps {
-                bat " mvn clean heroku:deploy -Dheroku.curl.enabled=true -DskipTests=true -Dmaven.javadoc.skip=true -B -V -D heroku.appName=https://git.heroku.com/ponto-inteligente-app.git"
+               // bat " mvn clean heroku:deploy -Dheroku.curl.enabled=true -DskipTests=true -Dmaven.javadoc.skip=true -B -V -D heroku.appName=https://git.heroku.com/ponto-inteligente-app.git"
+                bat " mvn heroku buildpacks:clear -DskipTests=true -Dmaven.javadoc.skip=true -B -V -D heroku.appName=https://git.heroku.com/ponto-inteligente-app.git"
+                
+                
             }
         }
     } 
