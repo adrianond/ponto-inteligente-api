@@ -131,7 +131,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
 				<executions>
 					<execution>
@@ -141,8 +141,8 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
+			</plugin> -->
+			<!-- <plugin>
 				<groupId>com.heroku.sdk</groupId>
 				<artifactId>heroku-maven-plugin</artifactId>
 				<version>2.0.6</version>
@@ -154,7 +154,7 @@
 						</goals>
 					</execution>
 				</executions> 
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 </project>
