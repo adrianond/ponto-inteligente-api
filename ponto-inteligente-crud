@@ -1,0 +1,88 @@
+Alterar dados empresa: PUT
+http://localhost:9000/api/empresas/2
+Payload :
+
+{
+      "razaoSocial": "Chinelos Bacanas LTDA",
+      "cnpj": "69464767000178"
+}
+
+----------------------------------------------------------------------------------------------
+Consultar empresa : GET
+http://localhost:9000/api/empresas/cnpj/82198127000121
+
+----------------------------------------------------------------------------------------------
+Cadastrar Pessoa Juriduca: POST
+http://localhost:9000/api/cadastrar-pj
+
+Payload
+
+{
+	"nome": "Antonio Bezerra",
+	"email":"antonio.bezerra@gmail.com",
+	"senha":"123456",
+	"cpf":"09416966002",
+	"razaoSocial":"Bar Blar LTDA",
+	"cnpj":"77211964000103"
+}
+
+----------------------------------------------------------------------------------------------
+Gerar Token: POST
+http://localhost:9000/auth
+
+payload
+{
+	"email": "admin@kazale.com",
+	 "senha": "123456"
+}
+
+----------------------------------------------------------------------------------------------
+Alterar funcionario: PUT
+http://localhost:9000/api/funcionarios/1
+
+payload
+
+{
+	"nome":"Fausto Kazale",
+	"email":"fausto.kazale@hotmail.com",
+	"senha":"123456"
+}
+
+---------------------------------------------------------------------------------------------------
+Cadastrar PF: POST
+http://localhost:9000/api/cadastrar-pf
+
+payload
+
+{
+	"nome":"Alexandre Santos",
+	"email":"alexandre.santos@blarbar.com.br",
+	"senha":"456789",
+	"cpf":"30523057008",
+	"cnpj":"77211964000103",
+	"valorHora":"35.00",
+	"qtdHorasTrabalhoDia":"8",
+	"qtdHorasAlmoco":"1"
+}
+
+--------------------------------------------------------------------------------------------------------
+Cadastrar lançamento : POST
+http://localhost:9000/api/lancamentos
+
+payload
+
+{
+	"data":"2019-26-02 15:48:50",
+	"tipo":"TERMINO_TRABALHO",
+	"descricao":"Hora de termino da jornada de trabalho",
+	"localizacao":"Tiete-SP",
+	"funcionarioId":"2"
+}
+
+--------------------------------------------------------------------------------------------------------
+Consultar lançamento por id funcionario: GET
+http://localhost:9000/api/lancamentos/funcionario/1
+
+-------------------------------------------------------------------------------------------------------
+Consultar lançamento por id do lançamento: GET
+http://localhost:9000/api/lancamentos/1

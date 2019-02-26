@@ -1,12 +1,10 @@
 package com.kazale.pontointeligente.api.services.impl;
 
 import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.kazale.pontointeligente.api.entities.Empresa;
 import com.kazale.pontointeligente.api.repositories.EmpresaRepository;
 import com.kazale.pontointeligente.api.services.EmpresaService;
@@ -31,5 +29,13 @@ public class EmpresaServiceImpl implements EmpresaService {
 		log.info("Persistindo empresa: {}", empresa);
 		return this.empresaRepository.save(empresa);
 	}
+	
+	@Override
+	public Optional<Empresa> buscarPorId(Long id) {
+		log.info("Buscando uma empresa para o id {}", id);
+		//cnpj pode ser nulo, logo utilizo Optional.ofNullable para evitar problemas de nullPointerException
+		return Optional.ofNullable(empresaRepository.findOne(id));
+	}
+
 
 }

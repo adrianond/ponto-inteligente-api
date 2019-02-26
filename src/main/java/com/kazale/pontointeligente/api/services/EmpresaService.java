@@ -23,5 +23,7 @@ public interface EmpresaService {
 	 * @return Empresa
 	 */
 	Empresa persistir(Empresa empresa);
+
+	Optional<Empresa> buscarPorId(Long id);
 	
 }

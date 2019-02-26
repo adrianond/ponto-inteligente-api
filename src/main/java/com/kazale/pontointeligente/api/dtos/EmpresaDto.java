@@ -1,10 +1,14 @@
 package com.kazale.pontointeligente.api.dtos;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class EmpresaDto {
 	
 	private Long id;
 	private String razaoSocial;
 	private String cnpj;
+	private String dataCriacao;
+	private String dataAtualizacao;
 
 	public EmpresaDto() {
 	}
@@ -17,6 +21,7 @@ public class EmpresaDto {
 		this.id = id;
 	}
 
+	@NotEmpty(message = "RazaoSocial não pode ser vazia.")
 	public String getRazaoSocial() {
 		return razaoSocial;
 	}
@@ -25,12 +30,29 @@ public class EmpresaDto {
 		this.razaoSocial = razaoSocial;
 	}
 
+	@NotEmpty(message = "CNPJ não pode ser vazia.")
 	public String getCnpj() {
 		return cnpj;
 	}
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
+	}
+	
+	public void setDataCriacao(String dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+	
+	public String getDataCriacao() {
+		return dataCriacao;
+	}
+	
+	public String getDataAtualizacao() {
+		return dataAtualizacao;
+	}
+
+	public void setDataAtualizacao(String dataAtualizacao) {
+		this.dataAtualizacao = dataAtualizacao;
 	}
 
 	@Override
