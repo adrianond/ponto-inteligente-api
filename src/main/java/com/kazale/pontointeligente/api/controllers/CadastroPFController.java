@@ -57,7 +57,7 @@ public class CadastroPFController {
 	public ResponseEntity<Response<CadastroPFDto>> cadastrar(@Valid @RequestBody CadastroPFDto cadastroPFDto,
 			BindingResult result) throws NoSuchAlgorithmException {
 		log.info("Cadastrando PF: {}", cadastroPFDto.toString());
-		Response<CadastroPFDto> response = new Response<CadastroPFDto>();
+		Response<CadastroPFDto> response = new Response<>();
 
 		validarDadosExistentes(cadastroPFDto, result);
 		Funcionario funcionario = this.converterDtoParaFuncionario(cadastroPFDto, result);
