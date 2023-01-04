@@ -35,6 +35,7 @@ public class SwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.kazale.pontointeligente.api.controllers"))
 				.paths(PathSelectors.any()).build()
+
 				.apiInfo(apiInfo());
 	}
 
@@ -44,6 +45,10 @@ public class SwaggerConfig {
 				.build();
 	}
 
+	/**
+	 * Obtém token e insere na requisição
+	 * @return
+	 */
 	@Bean
 	public SecurityConfiguration security() {
 		String token;
